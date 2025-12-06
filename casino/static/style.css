@@ -1,0 +1,95 @@
+.login-sec-1 {
+    height: auto;
+    margin: 30px;
+    /* padding: 20px; */
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid #282926;
+    background-color: #0e0d0d;
+}
+
+.login-sec-1 a {
+    color: #cfcfcf;
+}
+
+.login-sec-1 .log-group {
+    position: relative;
+    z-index: 3;
+}
+
+.login-sec-1 .log-group-1 {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    gap: 10px;
+}
+
+.login-sec-1 .log-group-2 {
+    margin: 20px auto;
+    max-width: 630px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.login-sec-1 .log-group-2 input {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 10px;
+    border: 1px solid #282926;
+    border-radius: 50px;
+    color: #cfcfcf;
+    background-color: #1c1c1c;
+}
+
+.login-sec-1 .log-group-3 {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.login-sec-1 .log-group-3 button.sign-btn, .login-sec-1 .log-group-3 a.log-btn, .login-sec-1 .log-group-3 button.log-btn {
+    width: 100%;
+    max-width: 300px;
+    font-weight: 400;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 50px;
+}
+
+.login-sec-1 .log-group-3 button.sign-btn {
+    background-color: #404040;
+}
+
+.login-sec-1 .log-group-3 a.log-btn, .login-sec-1 .log-group-3 button.log-btn {
+    background-color: #caff33;
+    color: black;
+    text-decoration: none;
+}
+
+.login-sec-1 .log-group-3 button.sign-btn {
+    color: #cfcfcf;
+    background-color: #262626;
+}
+
+/* ------------------Login */
+@media (min-width: 1000px) {
+
+    .login-sec-1 img.log-pic-1 {
+        width: 100%;
+    }
+
+    .login-sec-1 {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+}

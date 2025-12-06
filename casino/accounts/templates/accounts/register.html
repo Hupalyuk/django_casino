@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="login-sec-1">
+        <div class="log-group">
+            <div class="log-group-1">
+                <h1><span class="col-gre">Реєстрація</span></h1>
+                <p>
+                    Приєднуйтесь до нашої спільноти вже сьогодні! Створіть 
+                    обліковий запис, щоб отримати доступ до ексклюзивних 
+                    функцій та персоналізованого досвіду.
+                </p>
+            </div>
+            <div class="log-group-2">
+                <input type="text" name="username" placeholder="Логін" required>
+                <input type="password" name="password" placeholder="Пароль" required><br>
+                <input type="password" name="password2" placeholder="Повторіть пароль" required>
+            </div>
+            <div class="log-group-3">
+                <button type="submit" class="sign-btn">Зареєструватися</button>
+            </div>        
+        </div>
+    </div>
+</form>
+<a class="log-btn" href="/accounts/login/">Увійти</a>

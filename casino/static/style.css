@@ -1,133 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
 
-.foward {
-    position: relative;
-    z-index: 3;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: "Raleway", sans-serif;
+    background: #1c1c1c;
+    color: #fff;
+}
+
+/* ---------- LOGIN / REGISTER CARD ---------- */
 
 .login-sec-1 {
-    height: 801px;
-    margin: 30px;
-    position: relative;
-    text-align: center;
-    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px;
     border-radius: 20px;
-    border: 1px solid #282926;
-    background-color: #4e4d4d;
-    font-family: "Raleway", sans-serif;
-    color: white;
+    background: linear-gradient(135deg, #3e3e3e, #2a2a2a);
+    border: 1px solid #555;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
 }
 
-.login-sec-1 picture img {
-    left: 0;
-    height: 801px;
+.login-sec-1::before {
+    content: "";
     position: absolute;
+    width: 250px;
+    height: 250px;
+    top: -80px;
+    right: -80px;
+    background: rgba(155, 255, 55, 0.25);
+    filter: blur(80px);
+    border-radius: 50%;
     z-index: 1;
 }
 
 .login-sec-1 a {
-    color: #cfcfcf;
+    color: #b9ff60;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.login-sec-1 .log-group {
-    top: 200px;
+.log-group {
     position: relative;
-    z-index: 3;
+    z-index: 2;
 }
 
-.login-sec-1 .log-group-1 {
-    width: 600px;
-    margin: 50px auto 0;
+.log-group h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.log-group p {
+    font-size: 15px;
+    color: #d5d5d5;
+}
+
+/* ---------- INPUTS ---------- */
+
+.log-group-2 {
+    margin: 30px 0;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    text-align: center;
-    gap: 10px;
-    color: white;
-    line-height: 1.4;
-    
+    gap: 18px;
 }
 
-.login-sec-1 .log-group-2 {
-    margin: 20px auto;
+.log-group-2 input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    border: 1px solid #7ee31c;
+    background: rgba(0,0,0,0.3);
+    color: #dcdcdc;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.log-group-2 input:focus {
+    border-color: #b6ff4a;
+    background: rgba(0,0,0,0.45);
+}
+
+/* ---------- BUTTONS ---------- */
+
+.log-group-3 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     gap: 15px;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
 }
 
-.login-sec-1 .log-group-2 input {
+.sign-btn,
+.log-btn {
     width: 100%;
-    max-width: 300px;
-    padding: 15px 10px;
-    border: 1px solid #95d318;
+    padding: 15px;
     border-radius: 50px;
-    color: #cfcfcf;
-    background-color: rgba(7, 20, 143, 0.548);
-}
-
-.login-sec-1 .log-group-3 {
-    margin: 25px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.login-sec-1 .log-group-3 .sign-btn {
-    width: 100%;
-    max-width: 300px;
-    font-weight: 400;
-    padding: 15px 10px;
     border: none;
-    border-radius: 50px;
-    cursor: pointer;    
-    background-color: #bbdb64;
-}
-
-.login-sec-1 a.sign-btn {
-    width: 100%;
-    max-width: 300px;
-    font-weight: 400;
-    padding: 15px 100px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;    
-    background-color: #bbdb64;
+    cursor: pointer;
+    background: #b6ff4a;
     color: black;
-    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.25s ease;
 }
 
-.login-sec-1 button.sign-btn {
-    background-color: #404040;
+.sign-btn:hover,
+.log-btn:hover {
+    background: #d0ff7e;
+    transform: scale(1.02);
 }
 
-.login-sec-1 .log-btn {
-    width: 100%;
-    max-width: 300px;
-    font-weight: 400;
-    padding: 15px 120px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;    
-    background-color: #bbdb64;
-    color: black;
+.log-btn.dark {
+    background: #333;
+    color: #b6ff4a;
 }
 
-.login-sec-1 a.log-btn {
-    text-decoration: none;
+.log-btn.dark:hover {
+    background: #444;
 }
 
-/* ------------------Login */
-@media (min-width: 1000px) {
+/* ---------- RESPONSIVE ---------- */
 
+@media (max-width: 600px) {
     .login-sec-1 {
-        width: 100%;
-        max-width: 1424px;
-        margin: 0 auto;
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .log-group h2 {
+        font-size: 26px;
     }
 }
+    

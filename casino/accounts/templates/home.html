@@ -1,5 +1,6 @@
 {% if user.is_authenticated %}
     <h2>Вітаю, {{ user.username }}!</h2>
+    <a href="/games/">Ігри</a><br>
     <a href="/accounts/logout/">Вийти</a>
 {% else %}
     <h2>Гість</h2>

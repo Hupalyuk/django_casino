@@ -1,11 +1,26 @@
-<h2>Вхід</h2>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
 
 <form method="POST">
     {% csrf_token %}
-    <input type="text" name="username" placeholder="Логін" required><br>
-    <input type="password" name="password" placeholder="Пароль" required><br>
+    <div class="login-sec-1">
+        <picture><img src="{% static 'img/bg-img.jpg' %}" alt="Casino Banner"></picture>
+        <div class="log-group">
+            <div class="log-group-1">
+                <h1><span class="col-gre">Вхід</span></h1>
+            </div>
+            <div class="log-group-2">
+                <input type="text" name="username" placeholder="Логін" required>
+                <input type="password" name="password" placeholder="Пароль" required>
+            </div>
+            <button class="log-btn" type="submit">Увійти</button>
+            <h2>Або</h2>
+            <a class="sign-btn foward" href="/accounts/register/">Реєстрація</a>        
+        </div>
+        
+    </div>
 
-    <button type="submit">Увійти</button>
+    
 </form>
 
-<a href="/accounts/register/">Реєстрація</a>
+

@@ -1,0 +1,14 @@
+<h1>Підкидання монетки 🪙</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Підкинути монету</button>
+</form>
+
+{% if result %}
+    <h2>Результат: <b>{{ result }}</b></h2>
+    <a href="/games/coin/history/">Переглянути історію</a>
+{% endif %}
+
+<br><br>
+<a href="/games/">Назад до ігор</a>

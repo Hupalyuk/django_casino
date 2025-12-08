@@ -1,0 +1,11 @@
+<h1>Список ігор 🎮</h1>
+
+<ul>
+    {% for game in games %}
+        <li>
+            <a href="{{ game.url }}">{{ game.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="/">На головну</a>

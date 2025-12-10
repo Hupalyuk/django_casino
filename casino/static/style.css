@@ -1,9 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg,#00b7b7,#00263f);
+    color: #fff;
+}
+
+/* TOP BAR */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px;
+    background: rgba(0,40,60,.85);
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+}
+
+.logo-wrap img {
+    height: 42px;
+}
+
+nav a {
+    margin-left: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px 20px 90px;
+}
+
+.hero-logo {
+    width: 170px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 18px #00ffe0);
+}
+
+.hero h1 {
+    font-size: 42px;
+    text-shadow: 0 0 18px #00f6ff;
+}
+
+.hero p {
+    opacity: .8;
+    margin: 10px 0 28px;
+}
+
+.main-btn {
+    background: #00e676;
+    color: #003d2b;
+    padding: 16px 34px;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 0 20px #00ff9c;
+}
+
+/* GAME BLOCKS */
+.game-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.game-section h2 {
+    font-size: 36px;
+    text-shadow: 0 0 16px #00f6ff;
+    margin-bottom: 18px;
+}
+
+.game-card {
+    background: #062d4f;
+    border: 3px solid #00ffb3;
+    border-radius: 18px;
+    padding: 18px;
+    max-width: 420px;
+    margin: 0 auto 24px;
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.play-btn {
+    background: #00e676;
+    color: #003d2b;
+    padding: 14px 42px;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 0 20px #00ff9c;
 }
 
 body {

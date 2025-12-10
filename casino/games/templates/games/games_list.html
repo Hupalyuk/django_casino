@@ -1,11 +1,56 @@
-<h1>Список ігор 🎮</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Bober Game</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
 
-<ul>
-    {% for game in games %}
-        <li>
-            <a href="{{ game.url }}">{{ game.title }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<header class="topbar">
+    <div class="logo-wrap">
+        <img src="{% static 'img/logo.png' %}" alt="logo">
+        <span>Bober Game</span>
+    </div>
+    <nav>
+        <a href="{% url 'home' %}">Головна</a>
+        <a href="{% url 'coin_flip' %}">Монетка</a>
+        <a href="{% url 'guess_number' %}">Вгадай число</a>
+        <!-- <a href="{% url 'slots' %}">Слоти</a> -->
+    </nav>
+</header>
 
-<a href="/">На головну</a>
+<section class="hero">
+    <img src="{% static 'img/logo.png' %}" class="hero-logo">
+    <h1>BOBER GAME</h1>
+    <p>bober's luck is coming...</p>
+    <!-- <a href="{% url 'games_list' %}" class="main-btn">Почати грати</a> -->
+</section>
+
+<section class="game-section">
+    <h2>Слоти 🎰</h2>
+    <div class="game-card">
+        <img src="{% static 'img/slot.png' %}" alt="Slots">
+    </div>
+    <a href="{% url 'slots' %}" class="play-btn">Грати</a>
+</section>
+
+<section class="game-section">
+    <h2>Монетка 🪙</h2>
+    <div class="game-card">
+        <img src="{% static 'img/monet.png' %}" alt="Coin Flip">
+    </div>
+    <a href="{% url 'coin_flip' %}" class="play-btn">Грати</a>
+</section>
+
+<section class="game-section">
+    <h2>Вгадай число 🎲</h2>
+    <div class="game-card">
+        <img src="{% static 'img/dice.png' %}" alt="Guess Number">
+    </div>
+    <a href="{% url 'guess_number' %}" class="play-btn">Грати</a>
+</section>
+
+</body>
+</html>

@@ -4,13 +4,13 @@ from django.contrib.auth.decorators import login_required
 from .models import CoinFlipResult
 
 def games_list(request):
-    games = [
-        {"title": "Random Number Game", "url": "/games/guess/"},
-        {"title": "Coin Flip", "url": "/games/coin/"},
-        {"title": "Slots (Demo)", "url": "/games/slots/"},
-    ]
+    return render(request, "games/games_list.html")
 
-    return render(request, "games/games_list.html", {"games": games})
+from django.http import HttpResponse
+
+def slots_game(request):
+    return HttpResponse("Слоти поки що в розробці 😎")
+
 
 @login_required
 def coin_flip(request):
@@ -56,49 +56,58 @@ def coin_history(request):
 
 @login_required
 def guess_number(request):
+    profile = request.user.profile
+    initial_balance = profile.balance  # баланс до ставки
+    bet_amount = 0
+    win_amount = 0
     message = None
     result_number = None
-    win_amount = 0
+    user_choice = None
 
     if request.method == "POST":
         try:
-            user_number = int(request.POST.get("number"))
-            bet = int(request.POST.get("bet"))
+            user_choice = int(request.POST.get("number"))
+            bet_amount = int(request.POST.get("bet"))
             multiplier = float(request.POST.get("multiplier"))
         except:
             return render(request, "games/guess.html", {
-                "error": "Невірні дані!"
+                "error": "Невірні дані!",
+                "balance": profile.balance
             })
 
-        if user_number < 1 or user_number > 6:
+        if user_choice < 1 or user_choice > 6:
             return render(request, "games/guess.html", {
-                "error": "Число повинно бути від 1 до 6!"
+                "error": "Число повинно бути від 1 до 6!",
+                "balance": profile.balance
             })
 
-        profile = request.user.profile
-
-        if bet > profile.balance:
+        if bet_amount > profile.balance:
             return render(request, "games/guess.html", {
                 "error": "Недостатньо коштів",
+                "balance": profile.balance
             })
 
-        # знімаємо ставку
-        profile.balance -= bet
+        # Віднімаємо ставку від балансу
+        profile.balance -= bet_amount
 
-        # генеруємо число
+        # Генеруємо випадкове число
         result_number = random.randint(1, 6)
 
-        if user_number == result_number:
-            win_amount = int(bet * multiplier)
+        if user_choice == result_number:
+            win_amount = int(bet_amount * multiplier)
             profile.balance += win_amount
-            message = f"Ви вгадали! Ви виграли {win_amount} грн."
+            message = f"Ви вгадали! Ви виграли {win_amount} 💰"
         else:
-            message = f"Не вгадали! Було число {result_number}."
+            message = f"Не вгадали! Було число {result_number}. Ви програли {bet_amount} 💸"
 
         profile.save()
 
     return render(request, "games/guess.html", {
+        "balance": profile.balance,
+        "initial_balance": initial_balance,
+        "bet_amount": bet_amount,
+        "win_amount": win_amount,
         "message": message,
         "result_number": result_number,
-        "win_amount": win_amount
+        "user_choice": user_choice
     })

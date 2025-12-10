@@ -1,0 +1,149 @@
+/* --- Загальні стилі сторінки --- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg,#00b7b7,#00263f);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    color: white;
+}
+
+/* Лого зверху */
+.top-logo img {
+    width: 220px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Контейнер гри */
+.game-box {
+    background: rgba(0,0,0,0.3);
+    padding: 25px;
+    border-radius: 16px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+/* Монетка */
+#coin {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffe066, #ff9f1c);
+    box-shadow: inset -4px -4px 10px rgba(0,0,0,0.2), 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Панель ставок */
+.panel label {
+    display: block;
+    margin: 10px 0 3px;
+}
+
+#bet {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+/* Кнопки вибору орла/решки */
+.choice-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+
+.choice-btn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    background: #004d5e;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.choice-btn.active {
+    background: #00ffea;
+    color: #00383f;
+}
+
+/* Кнопка “Кинути монету” */
+#flipBtn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #00c16e;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* Баланс */
+.balance-box {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+/* Статус гри */
+#status {
+    font-size: 18px;
+    min-height: 24px;
+    margin-top: 8px;
+}
+
+/* Посилання назад до ігор */
+a.back-to-game {
+    background: #00e676;
+    color: #003d2b;
+    padding: 12px 36px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 0 15px #00ff9c;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* --- Анімації монети --- */
+@keyframes flipCoin {
+    0%   { transform: rotateY(0deg); }
+    25%  { transform: rotateY(180deg); }
+    50%  { transform: rotateY(360deg); }
+    75%  { transform: rotateY(540deg); }
+    100% { transform: rotateY(720deg); }
+}
+
+.flipping {
+    animation: flipCoin 1s ease-in-out forwards;
+}

@@ -1,37 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вгадай монетку 🪙</title>
+<link rel="stylesheet" href="{% static 'games/css/coin.css' %}">
+</head>
+<body>
+
+<!-- Лого зверху -->
+<div class="top-logo">
+    <img src="{% static 'img/logo.png' %}" alt="logo">
+</div>
+
 <h1>Вгадай монетку 🪙</h1>
 
-<p>Ваш баланс: <b>{{ user.profile.balance }}</b> 💰</p>
+<div class="game-box">
 
-<form method="POST">
-    {% csrf_token %}
+    <!-- Монетка -->
+    <div id="coin">🪙</div>
 
-    <label>
-        <input type="radio" name="choice" value="Орёл" required>
-        Орёл
-    </label>
+    <!-- Панель ставок і вибору -->
+    <div class="panel">
 
-    <label>
-        <input type="radio" name="choice" value="Решка" required>
-        Решка
-    </label>
+        <label>Ставка:</label>
+        <input type="number" id="bet" placeholder="Введи суму" min="1" value="10">
 
-    <br><br>
+        <label>Вибери сторону:</label>
+        <div class="choice-buttons">
+            <button class="choice-btn" data-choice="heads">Орел 🦅</button>
+            <button class="choice-btn" data-choice="tails">Решка 🪙</button>
+        </div>
 
-    <button type="submit">Підкинути монету</button>
-</form>
+        <button id="flipBtn" class="play">Кинути монету</button>
 
-{% if result %}
-    <h2>Ви вибрали: <b>{{ user_choice }}</b></h2>
-    <h2>Випало: <b>{{ result }}</b></h2>
+        <div class="balance-box">
+            Баланс: $<span id="balance">{{ user.profile.balance }}</span>
+        </div>
 
-    {% if win %}
-        <p style="color:green">🎉 Ви вгадали! +100</p>
-    {% else %}
-        <p style="color:red">❌ Ви не вгадали. -50</p>
-    {% endif %}
+        <div id="status">Готово</div>
+    </div>
 
-    <a href="/games/coin/history/">Переглянути історію</a>
-{% endif %}
+</div>
 
-<br><br>
-<a href="/games/">Назад до ігор</a>
+<!-- Посилання назад до ігор -->
+<a class="back-to-game" href="{% url 'games_list' %}">Назад до ігор</a>
+
+<script>
+const updateBalanceUrl = "{% url 'update_balance' %}";
+</script>
+<script src="{% static 'games/js/coin.js' %}"></script>
+</body>
+</html>

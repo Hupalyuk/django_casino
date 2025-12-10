@@ -121,3 +121,14 @@ h1 {
   font-size: 18px;
   min-height: 24px;
 }
+
+a.back-to-game {
+  background: #00e676;
+  color: #003d2b;
+  padding: 14px 42px;
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00ff9c;
+}

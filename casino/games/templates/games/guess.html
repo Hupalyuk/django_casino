@@ -10,7 +10,7 @@
 <body>
 
 <div class="top-logo">
-    <img src="{% static 'games/img/logo.png' %}" alt="logo">
+    <img src="{% static 'img/logo.png' %}" alt="logo">
 </div>
 
 <h1>Вгадай число 🎲</h1>
@@ -46,6 +46,7 @@
 const updateBalanceUrl = "{% url 'update_balance' %}";
 </script>
 <script src="{% static 'games/js/guess.js' %}"></script>
-
+<br><br>
+<a class="back-to-game" href="/games/">Назад до ігор</a>
 </body>
 </html>

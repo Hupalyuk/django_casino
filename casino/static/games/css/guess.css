@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  /* ФОН без розривів */
+  background: linear-gradient(180deg,#00b7b7,#00263f);
+  background-attachment: fixed;
+  background-size: cover;
+
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  color: white;
+}
+
+/* Лого зверху */
+.top-logo img {
+   width: 240px;
+  height: auto;
+  display: block;
+  margin: 0 auto 5px;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.game-box {
+  background: rgba(0,0,0,0.25);
+  padding: 25px;
+  border-radius: 16px;
+  width: 330px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+#dice {
+  width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: 20px;
+  margin: 0 auto 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 5px;
+  transition: transform .3s;
+}
+
+.dot {
+  width: 22px;
+  height: 22px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.panel label {
+  display: block;
+  margin: 10px 0 3px;
+}
+
+#bet {
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.num {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #004d5e;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.num.active {
+  background: #00ffea;
+  color: #00383f;
+}
+
+.play {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #00c16e;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.balance-box {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#status {
+  font-size: 18px;
+  min-height: 24px;
+}

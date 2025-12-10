@@ -1,52 +1,51 @@
-<h2>Вгадай число (1–6)</h2>
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice Betting Game</title>
+<link rel="stylesheet" href="{% static 'games/css/guess.css' %}">
+</head>
+<body>
 
-<p>Баланс: <strong>{{ balance }}</strong> 💰</p>
+<div class="top-logo">
+    <img src="{% static 'games/img/logo.png' %}" alt="logo">
+</div>
 
-{% if error %}
-    <p style="color:red">{{ error }}</p>
-{% endif %}
+<h1>Вгадай число 🎲</h1>
 
-{% if message %}
-    <p><strong>{{ message }}</strong></p>
-    <p>
-        Баланс до ставки: {{ initial_balance }}<br>
-        Ставка: {{ bet_amount }}<br>
-        {% if win_amount > 0 %}
-            Виграш: +{{ win_amount }}
-        {% else %}
-            Втрата: -{{ bet_amount }}
-        {% endif %}
-    </p>
-{% endif %}
+<div class="game-box">
 
-<form method="POST">
-    {% csrf_token %}
+    <div id="dice"></div>
 
-    <label>Ваше число (1–6):</label>
-    <input type="number" name="number" min="1" max="6" required>
+    <div class="panel">
 
-    <br><br>
+        <label>Ставка:</label>
+        <input type="number" id="bet" placeholder="Введи суму" min="1" value="10">
 
-    <label>Ставка:</label>
-    <input type="number" name="bet" min="1" required>
+        <label>Вибери число:</label>
+        <div class="numbers">
+            {% for n in "123456" %}
+            <button class="num" data-n="{{ n }}">{{ n }}</button>
+            {% endfor %}
+        </div>
 
-    <br><br>
+        <button id="rollBtn" class="play">КИДАТИ</button>
 
-    <label>Коефіцієнт множення:</label>
-    <select name="multiplier">
-        <option value="2">x2</option>
-        <option value="3">x3</option>
-        <option value="5">x5</option>
-    </select>
+        <div class="balance-box">
+            Баланс: $<span id="balance">{{ user.profile.balance }}</span>
+        </div>
 
-    <br><br>
+        <div id="status">Готово</div>
+    </div>
 
-    <button type="submit">Грати</button>
-</form>
+</div>
 
-{% if result_number %}
-    <p>Випало число: <strong>{{ result_number }}</strong></p>
-{% endif %}
+<script>
+const updateBalanceUrl = "{% url 'update_balance' %}";
+</script>
+<script src="{% static 'games/js/guess.js' %}"></script>
 
-<br><br>
-<a href="/games/">Назад до ігор</a>
+</body>
+</html>

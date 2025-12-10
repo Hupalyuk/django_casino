@@ -13,25 +13,33 @@
         <img src="{% static 'img/logo.png' %}" alt="logo">
         <span>Bober Game</span>
     </div>
+
     <nav>
         <a href="{% url 'home' %}">Головна</a>
         <a href="{% url 'coin_flip' %}">Монетка</a>
         <a href="{% url 'guess_number' %}">Вгадай число</a>
-        {% if user.is_authenticated %}
-            <span style="margin-left:20px;">Баланс: <b>{{ user.profile.balance }}</b> 💰</span>
-            <a href="{% url 'logout' %}">Вийти</a>
-        {% else %}
-            <a href="{% url 'login' %}">Увійти</a>
-            <a href="{% url 'register' %}">Реєстрація</a>
-        {% endif %}
+        <a href="{% url 'slots' %}">Слоти</a>
     </nav>
+
+    {% if request.user.is_authenticated %}
+    <div class="balance-box">
+        Баланс: <strong>{{ request.user.balance }}</strong> 🪙
+    </div>
+    {% endif %}
 </header>
 
 <section class="hero">
-    <img src="{% static 'img/logo.png' %}" class="hero-logo" alt="Logo">
+    <img src="{% static 'img/logo.png' %}" class="hero-logo">
     <h1>BOBER GAME</h1>
     <p>bober's luck is coming...</p>
-    <!-- <a href="{% url 'games_list' %}" class="main-btn">Переглянути ігри</a> -->
+</section>
+
+<section class="game-section">
+    <h2>Слоти 🎰</h2>
+    <div class="game-card">
+        <img src="{% static 'img/slot.png' %}" alt="Slots">
+    </div>
+    <a href="{% url 'slots' %}" class="play-btn">Грати</a>
 </section>
 
 <section class="game-section">

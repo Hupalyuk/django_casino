@@ -8,8 +8,8 @@ def games_list(request):
 
 from django.http import HttpResponse
 
-def slots_game(request):
-    return HttpResponse("Слоти поки що в розробці 😎")
+def slots(request):
+    return render(request, 'games/slots.html')
 
 
 @login_required
@@ -47,6 +47,20 @@ def coin_flip(request):
         "win": win
     })
 
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+import json
+
+@login_required
+def update_balance(request):
+    data = json.loads(request.body)
+    amount = int(data.get("amount", 0))
+
+    profile = request.user.profile
+    profile.balance += amount
+    profile.save()
+
+    return JsonResponse({"balance": profile.balance})
 
 
 @login_required

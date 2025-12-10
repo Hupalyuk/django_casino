@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot 3 Reels</title>
+
+    <link rel="stylesheet" href="{% static 'games/css/slots.css' %}">
+</head>
+<body>
+
+<div class="header">
+    <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+    <h1>Slot 3 Reels</h1>
+</div>
+
+<div class="slot-machine">
+    <div class="reels" id="reels"></div>
+
+    <div class="controls">
+        <button id="spin">SPIN</button>
+        <div class="msg" id="msg">Готово</div>
+    </div>
+
+    <div class="balance">
+        Баланс: $<span id="balance">{{ user.profile.balance }}</span>
+    </div>
+</div>
+
+<canvas id="confetti-canvas"></canvas>
+<br><br>
+<a class="back-to-game" href="/games/">Назад до ігор</a>
+<script>
+    const updateBalanceUrl = "{% url 'update_balance' %}";
+</script>
+
+<script src="{% static 'games/js/slots.js' %}"></script>
+
+</body>
+</html>

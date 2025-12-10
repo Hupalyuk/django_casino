@@ -1,12 +1,35 @@
-<h1>Підкидання монетки 🪙</h1>
+<h1>Вгадай монетку 🪙</h1>
+
+<p>Ваш баланс: <b>{{ user.profile.balance }}</b> 💰</p>
 
 <form method="POST">
     {% csrf_token %}
+
+    <label>
+        <input type="radio" name="choice" value="Орёл" required>
+        Орёл
+    </label>
+
+    <label>
+        <input type="radio" name="choice" value="Решка" required>
+        Решка
+    </label>
+
+    <br><br>
+
     <button type="submit">Підкинути монету</button>
 </form>
 
 {% if result %}
-    <h2>Результат: <b>{{ result }}</b></h2>
+    <h2>Ви вибрали: <b>{{ user_choice }}</b></h2>
+    <h2>Випало: <b>{{ result }}</b></h2>
+
+    {% if win %}
+        <p style="color:green">🎉 Ви вгадали! +100</p>
+    {% else %}
+        <p style="color:red">❌ Ви не вгадали. -50</p>
+    {% endif %}
+
     <a href="/games/coin/history/">Переглянути історію</a>
 {% endif %}
 

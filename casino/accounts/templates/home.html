@@ -1,5 +1,7 @@
 {% if user.is_authenticated %}
     <h2>Вітаю, {{ user.username }}!</h2>
+    <p>Ваш баланс: <b>{{ user.profile.balance }}</b> 💰</p>
+
     <a href="/games/">Ігри</a><br>
     <a href="/accounts/logout/">Вийти</a>
 {% else %}

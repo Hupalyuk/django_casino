@@ -1,0 +1,41 @@
+<h2>Вгадай число (1–6)</h2>
+
+{% if error %}
+    <p style="color:red">{{ error }}</p>
+{% endif %}
+
+{% if message %}
+    <p><strong>{{ message }}</strong></p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Ваше число (1–6):</label>
+    <input type="number" name="number" min="1" max="6" required>
+
+    <br><br>
+
+    <label>Ставка:</label>
+    <input type="number" name="bet" min="1" required>
+
+    <br><br>
+
+    <label>Коефіцієнт множення:</label>
+    <select name="multiplier">
+        <option value="2">x2</option>
+        <option value="3">x3</option>
+        <option value="5">x5</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Грати</button>
+</form>
+
+{% if result_number %}
+    <p>Випало число: <strong>{{ result_number }}</strong></p>
+{% endif %}
+
+<br><br>
+<a href="/games/">Назад до ігор</a>
